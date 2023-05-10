@@ -5,11 +5,11 @@ import coursesSlice from './courses/slice';
 import authorsSlice from './authors/slice';
 
 const store = configureStore({
-	reducer: {
-		user: userSlice.reducer,
-		courses: coursesSlice.reducer,
-		authors: authorsSlice.reducer,
-	},
+  reducer: {
+    user: userSlice.reducer,
+    courses: coursesSlice.reducer,
+    authors: authorsSlice.reducer,
+  },
 });
 
 export default store;

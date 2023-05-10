@@ -9,44 +9,44 @@ import { logoutUser } from '../../store/user/thunk';
 import classes from './Header.module.scss';
 
 const Header = () => {
-	const navigate = useNavigate();
-	const dispatch = useDispatch();
-	const { isAuth, name, role } = useSelector(userSelector);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isAuth, name, role } = useSelector(userSelector);
 
-	const logOutHandler = () => {
-		dispatch(logoutUser());
+  const logOutHandler = () => {
+    dispatch(logoutUser());
 
-		navigate('/login');
-	};
+    navigate('/login');
+  };
 
-	return (
-		<nav className={classes['header-navbar']}>
-			<ul className={classes['header-navbar__list']}>
-				<li className={classes['header-navbar__list-logo']}>
-					<Logo />
-					<span>COURSES</span>
-				</li>
-				{isAuth && (
-					<>
-						<li className={classes['header-navbar__list-name']}>
-							{name}{' '}
-							{role === 'admin' && (
-								<span className={classes['header-navbar--pill']}>admin</span>
-							)}
-						</li>
-						<li>
-							<Button
-								className={classes['header-navbar__button']}
-								onClick={logOutHandler}
-							>
-								Log out
-							</Button>
-						</li>
-					</>
-				)}
-			</ul>
-		</nav>
-	);
+  return (
+    <nav className={classes['header-navbar']}>
+      <ul className={classes['header-navbar__list']}>
+        <li className={classes['header-navbar__list-logo']}>
+          <Logo />
+          <span>COURSES</span>
+        </li>
+        {isAuth && (
+          <>
+            <li className={classes['header-navbar__list-name']}>
+              {name}{' '}
+              {role === 'admin' && (
+                <span className={classes['header-navbar--pill']}>admin</span>
+              )}
+            </li>
+            <li>
+              <Button
+                className={classes['header-navbar__button']}
+                onClick={logOutHandler}
+              >
+                Log out
+              </Button>
+            </li>
+          </>
+        )}
+      </ul>
+    </nav>
+  );
 };
 
 export default Header;
