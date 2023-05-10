@@ -1,0 +1,25 @@
+.login-form {
+    height: calc(98vh - 70px);
+    border: 1px solid deepskyblue;
+    margin: 1rem;
+    display: grid;
+    gap: 1rem;
+    justify-content: center;
+    align-content: center;
+    animation: flip-in 0.5s ease-in-out both;
+
+    &__title {
+        text-align: center;
+    }
+}
+
+@keyframes flip-in {
+    from {
+        transform: rotateY(180deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotateY(0);
+        opacity: 1;
+    }
+}

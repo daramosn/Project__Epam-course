@@ -1,0 +1,56 @@
+.course {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    border: 1.7px solid rgba(102, 169, 232, 0.641);
+    // box-shadow: 2px 2px 3px rgb(7, 46, 82);
+    border-radius: 20px;
+    padding: 1rem 1.5rem;
+    gap: 2rem;
+    transition: all 0.3s ease;
+
+    &__description-title {
+        margin: 0;
+    }
+    &__description-content {
+        text-align: justify;
+    }
+
+    &__details {
+        min-width: 0;
+        display: grid;
+        gap: 0.7rem;
+        &-authors {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 0;
+        }
+
+        &-item {
+            margin: 0;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    &__button {
+        max-height: 38px;
+    }
+
+    &__icon {
+        margin: 0;
+        height: 12px;
+    }
+
+    &--bold {
+        font-weight: 500;
+    }
+}
+
+.course:hover {
+    background-color: rgba(157, 195, 231, 0.12);
+}

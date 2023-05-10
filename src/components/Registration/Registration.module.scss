@@ -1,0 +1,25 @@
+.registration-form {
+    height: calc(98vh - 70px);
+    border: 1px solid deepskyblue;
+    margin: 1rem;
+    display: grid;
+    gap: 1rem;
+    justify-content: center;
+    align-content: center;
+    animation: translation 0.5s ease-in-out both;
+
+    &__title {
+        text-align: center;
+    }
+}
+
+@keyframes translation {
+    from {
+        opacity: 0;
+        transform: translateY(600px);
+    }
+    to {
+        opacity: 100;
+        transform: translateY(0px);
+    }
+}

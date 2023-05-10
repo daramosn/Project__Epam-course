@@ -1,0 +1,51 @@
+.header-navbar {
+    // border: 1px solid rgb(225, 104, 104);
+    padding: 0 1rem;
+    margin: 0.5rem 1rem;
+
+    &__list {
+        list-style: none;
+        padding: 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+
+        &-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        &-name {
+            font-weight: bold;
+            flex-grow: 1;
+            text-align: right;
+        }
+    }
+
+    &--pill {
+        display: inline-block;
+        position: relative;
+        top: -10px;
+        left: -5px;
+        background-color: #f7d755;
+        color: #000000;
+        font-size: 8px;
+        padding: 4px 8px;
+        border-radius: 8px;
+    }
+
+    &__button {
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+            background-color: rgb(229, 67, 67);
+            border-color: rgb(229, 67, 67);
+            color: white;
+            font-size: 15px;
+        }
+    }
+}

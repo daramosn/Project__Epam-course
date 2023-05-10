@@ -1,0 +1,21 @@
+.course-info {
+    margin: 1rem;
+    padding: 2rem;
+    border: 1px solid royalblue;
+
+    &__back-link {
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+    }
+
+    &__description {
+        display: grid;
+        grid-template-columns: 2.5fr 1fr;
+        gap: 4rem;
+    }
+
+    &__content {
+        text-align: justify;
+    }
+}
