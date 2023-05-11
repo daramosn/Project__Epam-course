@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 
 import Input from '../../../../common/Input';
 import Button from '../../../../common/Button';
-
-import classes from './CreateAuthors.module.css';
 import { useDispatch } from 'react-redux';
 import { addAuthor } from '../../../../store/authors/thunk';
 
-const CreateAuthors = (props) => {
+import classes from './CreateAuthor.module.scss';
+
+const CreateAuthor = (props) => {
     const [inputAuthor, setInputAuthor] = useState('');
     const dispatch = useDispatch();
 
@@ -44,4 +44,4 @@ const CreateAuthors = (props) => {
     );
 };
 
-export default CreateAuthors;
+export default CreateAuthor;
