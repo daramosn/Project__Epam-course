@@ -1,40 +1,43 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true
-  },
-  "extends": ["react-app", "prettier"],
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+    "env": {
+        "browser": true,
+        "es2021": true
     },
-    "ecmaVersion": 12,
-    "sourceType": "module"
-  },
-  "plugins": ["react", "prettier"],
-  "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "printWidth": 80,
-        "trailingComma": "es5",
-        "semi": true,
-        "jsxSingleQuote": true,
-        "singleQuote": true,
-        "useTabs": false,
-        "tabWidth": 2,
-        "endOfLine": "auto",
-        "max-len": ["error", { "code": 80 }]
-      }
-    ],
-    "react/jsx-props-no-spreading": ["error", { "exceptions": ["Component"] }]
-  },
-  "overrides": [
-    {
-      "files": ["**/*.test.js"],
-      "rules": {
-        "react/jsx-props-no-spreading": "off"
-      }
-    }
-  ]
+    "extends": ["react-app", "prettier"],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": ["react", "prettier"],
+    "rules": {
+        // "prettier/prettier": [
+        //     "error",
+        //     {
+        //         "printWidth": 80,
+        //         "trailingComma": "es5",
+        //         "semi": true,
+        //         "jsxSingleQuote": true,
+        //         "singleQuote": true,
+        //         "useTabs": false,
+        //         "tabWidth": 4,
+        //         "endOfLine": "auto",
+        //         "max-len": ["error", { "code": 80 }]
+        //     }
+        // ],
+        "react/jsx-props-no-spreading": [
+            "error",
+            { "exceptions": ["Component"] }
+        ]
+    },
+    "overrides": [
+        {
+            "files": ["**/*.test.js"],
+            "rules": {
+                "react/jsx-props-no-spreading": "off"
+            }
+        }
+    ]
 }

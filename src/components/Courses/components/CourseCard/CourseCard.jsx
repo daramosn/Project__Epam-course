@@ -68,7 +68,7 @@ const CourseCard = ({
                 <img
                   className={classes['course__icon']}
                   src={trashIcon}
-                  alt='trash-icon'
+                  alt="trash-icon"
                 />
               </Button>
               <Button
@@ -78,7 +78,7 @@ const CourseCard = ({
                 <img
                   className={classes['course__icon']}
                   src={editIcon}
-                  alt='edit-icon'
+                  alt="edit-icon"
                 />
               </Button>
             </>

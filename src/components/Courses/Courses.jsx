@@ -16,71 +16,76 @@ import classes from './Courses.module.scss';
 import Card from '../../UI/Card';
 
 const Courses = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { role } = useSelector(userSelector);
-  const authors = useSelector(authorsSelector);
-  const courses = useSelector(coursesSelector);
-  const [coursesList, setCoursesList] = useState(courses);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { role } = useSelector(userSelector);
+    const authors = useSelector(authorsSelector);
+    const courses = useSelector(coursesSelector);
+    const [coursesList, setCoursesList] = useState(courses);
 
-  const toCreateCourseHandler = () => {
-    navigate('/courses/add');
-  };
-
-  useEffect(() => {
-    const loadAsync = async () => {
-      await dispatch(getAuthors());
-      await dispatch(getCourses());
+    const toCreateCourseHandler = () => {
+        navigate('/courses/add');
     };
-    loadAsync();
-  }, [dispatch]);
 
-  useEffect(() => {
-    setCoursesList(courses);
-  }, [courses]);
+    useEffect(() => {
+        const loadAsync = async () => {
+            await dispatch(getAuthors());
+            await dispatch(getCourses());
+        };
+        loadAsync();
+    }, [dispatch]);
 
-  const searchHandler = (search) => {
-    if (search === '') {
-      setCoursesList(courses);
-    } else {
-      const filteredSearch = courses.filter(
-        (course) =>
-          course.id.toLowerCase().includes(search) ||
-          course.title.toLowerCase().includes(search)
-      );
-      setCoursesList(filteredSearch);
-    }
-  };
+    useEffect(() => {
+        setCoursesList(courses);
+    }, [courses]);
 
-  return (
-    <div className={classes['courses']}>
-      <section className={classes['courses__actions']}>
-        <SearchBar onSearch={searchHandler} />
-        {role === 'admin' && (
-          <Button onClick={toCreateCourseHandler}>Add new course</Button>
-        )}
-      </section>
+    const searchHandler = (search) => {
+        if (search === '') {
+            setCoursesList(courses);
+        } else {
+            const filteredSearch = courses.filter(
+                (course) =>
+                    course.id.toLowerCase().includes(search) ||
+                    course.title.toLowerCase().includes(search)
+            );
+            setCoursesList(filteredSearch);
+        }
+    };
 
-      {coursesList.length === 0 && (
-        <Card>
-          <p>There are currently no courses!</p>
-        </Card>
-      )}
-      <ul className={classes['courses__list']}>
-        {coursesList.map((course) => (
-          <CourseCard
-            key={course.id}
-            id={course.id}
-            title={course.title}
-            description={course.description}
-            duration={course.duration}
-            creationDate={course.creationDate}
-            authors={getAuthorsNamesList(course.authors, authors).join(', ')}
-          />
-        ))}
-      </ul>
-    </div>
-  );
+    return (
+        <div className={classes['courses']}>
+            <section className={classes['courses__actions']}>
+                <SearchBar onSearch={searchHandler} />
+                {role === 'admin' && (
+                    <Button onClick={toCreateCourseHandler}>
+                        Add new course
+                    </Button>
+                )}
+            </section>
+
+            {coursesList.length === 0 && (
+                <Card>
+                    <p>There are currently no courses!</p>
+                </Card>
+            )}
+            <ul className={classes['courses__list']}>
+                {coursesList.map((course) => (
+                    <CourseCard
+                        key={course.id}
+                        id={course.id}
+                        title={course.title}
+                        description={course.description}
+                        duration={course.duration}
+                        creationDate={course.creationDate}
+                        authors={getAuthorsNamesList(
+                            course.authors,
+                            authors
+                        ).join(', ')}
+                    />
+                ))}
+            </ul>
+        </div>
+    );
 };
 
 export default Courses;
