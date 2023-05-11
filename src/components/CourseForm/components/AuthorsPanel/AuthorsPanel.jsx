@@ -1,47 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import Input from '../../../../common/Input';
+import classes from './AuthorsPanel.module.css';
 import Button from '../../../../common/Button';
 
-import classes from './CreateAuthors.module.css';
-import { useDispatch } from 'react-redux';
-import { addAuthor } from '../../../../store/authors/thunk';
-
-const CreateAuthors = (props) => {
-    const [inputAuthor, setInputAuthor] = useState('');
-    const dispatch = useDispatch();
-
-    const changeAuthorHandler = (event) => {
-        setInputAuthor(event.target.value);
-    };
-
-    const createAuthorHandler = () => {
-        if (inputAuthor.length > 1) {
-            const newAuthor = { name: inputAuthor };
-            setInputAuthor('');
-            // setAuthorList((prevAuthorList) => [...prevAuthorList, newAuthor]);
-            dispatch(addAuthor(newAuthor));
-        }
-    };
+const AuthorsPanel = ({ authorList, title, buttonName }) => {
+    const authorButtonHandler = () => {};
 
     return (
-        <section className={classes['new-author']}>
-            <h4 className={classes['new-author--title']}>Add author</h4>
-            <Input
-                label={'Author name'}
-                placeholder={'Enter author name...'}
-                value={inputAuthor}
-                onChange={changeAuthorHandler}
-            />
-            <Button
-                type={'button'}
-                onClick={createAuthorHandler}
-                className={classes['new-course__button']}
-            >
-                Create author
-            </Button>
-        </section>
+        <div className={classes['authors-list']}>
+            <h4 className={classes['authors-list--title']}>{title}</h4>
+            <ul className={classes['authors-list--no-padding']}>
+                {authorList.map((author) => (
+                    <li
+                        className={classes['authors-list__list-item']}
+                        key={author.id}
+                    >
+                        <span>{author.name}</span>
+                        <Button
+                            onClick={authorButtonHandler.bind(null, author)}
+                        >
+                            {buttonName}
+                        </Button>
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 };
 
-export default CreateAuthors;
+export default AuthorsPanel;
