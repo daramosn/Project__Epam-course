@@ -40,9 +40,9 @@ const CourseDetails = ({
 
             <textarea
                 className={classes['course-details__description']}
-                name="actions-textarea"
-                cols="30"
-                rows="10"
+                name={'actions-textarea'}
+                cols={'30'}
+                rows={'10'}
                 placeholder={'Enter description...'}
                 value={description}
                 onChange={onDescription}
