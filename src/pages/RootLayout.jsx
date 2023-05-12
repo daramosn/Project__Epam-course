@@ -7,20 +7,20 @@ import { getRole } from '../store/user/thunk';
 import Card from '../UI/Card';
 
 const RootLayout = () => {
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (localStorage.getItem('TOKEN')) {
-      dispatch(getRole());
-    }
-  }, [dispatch]);
+    useEffect(() => {
+        if (localStorage.getItem('TOKEN')) {
+            dispatch(getRole());
+        }
+    }, [dispatch]);
 
-  return (
-    <Card>
-      <Header />
-      <Outlet />
-    </Card>
-  );
+    return (
+        <Card>
+            <Header />
+            <Outlet />
+        </Card>
+    );
 };
 
 export default RootLayout;

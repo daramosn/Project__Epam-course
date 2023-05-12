@@ -3,8 +3,10 @@ import React from 'react';
 import classes from './AuthorsPanel.module.scss';
 import Button from '../../../../common/Button';
 
-const AuthorsPanel = ({ authorList, title, buttonName }) => {
-    const authorButtonHandler = () => {};
+const AuthorsPanel = ({ authorList, title, buttonName, onClickAuthor }) => {
+    const authorButtonHandler = (author) => {
+        onClickAuthor(author);
+    };
 
     return (
         <div className={classes['authors-list']}>

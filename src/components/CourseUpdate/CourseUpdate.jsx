@@ -7,32 +7,33 @@ import { coursesSelector } from '../../store/courses/slice';
 import { authorsSelector } from '../../store/authors/slice';
 
 const CourseUpdate = () => {
-  const params = useParams();
-  const courses = useSelector(coursesSelector);
-  const authorsList = useSelector(authorsSelector);
+    const params = useParams();
+    const courses = useSelector(coursesSelector);
+    const authorsList = useSelector(authorsSelector);
 
-  const loadedCourse = courses.find((course) => course.id === params.courseId);
+    const loadedCourse = courses.find(
+        (course) => course.id === params.courseId
+    );
 
-  const filteredAuthors = authorsList.filter(
-    (author) => !loadedCourse.authors.includes(author.id)
-  );
+    const availableAuthors = authorsList.filter(
+        (author) => !loadedCourse.authors.includes(author.id)
+    );
+    const courseAuthors = authorsList.filter((author) =>
+        loadedCourse.authors.includes(author.id)
+    );
 
-  const courseAuthors = authorsList.filter((author) =>
-    loadedCourse.authors.includes(author.id)
-  );
+    const loadedDataCourse = {
+        title: loadedCourse.title,
+        description: loadedCourse.description,
+        id: loadedCourse.id,
+        duration: loadedCourse.duration,
+        courseAuthors: courseAuthors,
+        availableAuthors: availableAuthors,
+    };
 
-  const loadedDataCourse = {
-    title: loadedCourse.title,
-    description: loadedCourse.description,
-    id: loadedCourse.id,
-    duration: loadedCourse.duration,
-    courseAuthors: courseAuthors,
-    otherAuthors: filteredAuthors,
-  };
+    console.log(loadedDataCourse);
 
-  console.log(loadedDataCourse);
-
-  return <CourseForm defaultValues={loadedDataCourse} />;
+    return <CourseForm defaultValues={loadedDataCourse} />;
 };
 
 export default CourseUpdate;

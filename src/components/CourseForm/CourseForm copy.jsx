@@ -128,7 +128,7 @@ const CourseForm = ({ defaultValues }) => {
             <form
                 onSubmit={submitHandler}
                 className={classes['new-course']}
-                name="course-form"
+                name='course-form'
             >
                 <div className={classes['new-course__actions']}>
                     <Input
@@ -144,9 +144,9 @@ const CourseForm = ({ defaultValues }) => {
                     </Button>
                     <textarea
                         className={classes['new-course__actions-textarea']}
-                        name="actions-textarea"
-                        cols="30"
-                        rows="10"
+                        name='actions-textarea'
+                        cols='30'
+                        rows='10'
                         placeholder={'Enter description...'}
                         value={textarea}
                         onChange={changeTextareaHandler}
