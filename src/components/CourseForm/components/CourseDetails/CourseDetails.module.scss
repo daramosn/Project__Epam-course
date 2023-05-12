@@ -3,4 +3,26 @@
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: center;
+
+    &__title {
+        grid-row: 1/2;
+        display: grid;
+        gap: 1rem;
+    }
+    &__duration {
+        grid-row: 2/3;
+        display: grid;
+        gap: 1rem;
+    }
+    &__description {
+        resize: none;
+        height: 213px;
+        border-radius: 10px;
+        grid-row: 1/3;
+        align-self: flex-start;
+    }
+
+    &--title {
+        margin: 0;
+    }
 }

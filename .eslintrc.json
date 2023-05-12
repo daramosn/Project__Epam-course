@@ -13,20 +13,20 @@
     },
     "plugins": ["react", "prettier"],
     "rules": {
-        "prettier/prettier": [
-            "error",
-            {
-                "printWidth": 80,
-                "trailingComma": "es5",
-                "semi": true,
-                "jsxSingleQuote": true,
-                "singleQuote": true,
-                "useTabs": false,
-                "tabWidth": 4,
-                "endOfLine": "auto",
-                "max-len": ["error", { "code": 80 }]
-            }
-        ],
+        // "prettier/prettier": [
+        //     "error",
+        //     {
+        //         "printWidth": 80,
+        //         "trailingComma": "es5",
+        //         "semi": true,
+        //         "jsxSingleQuote": true,
+        //         "singleQuote": true,
+        //         "useTabs": false,
+        //         "tabWidth": 4,
+        //         "endOfLine": "auto",
+        //         "max-len": ["error", { "code": 80 }]
+        //     }
+        // ],
         "react/jsx-props-no-spreading": [
             "error",
             { "exceptions": ["Component"] }

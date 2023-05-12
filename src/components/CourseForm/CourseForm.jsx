@@ -17,24 +17,18 @@ const CourseForm = ({ defaultValues }) => {
     const authors = useSelector(authorsSelector);
     const navigate = useNavigate();
 
+    const [title, setTitle] = useState(defaultValues?.title ?? '');
+    const [description, setDescription] = useState(
+        defaultValues?.description ?? ''
+    );
+    const [duration, setDuration] = useState(defaultValues?.duration ?? 1);
     const [authorsList, setAuthorsList] = useState(
         defaultValues ? defaultValues.availableAuthors : authors
     );
-
     const [courseAuthorsList, setCourseAuthorsList] = useState(
-        defaultValues ? defaultValues.courseAuthors : []
+        defaultValues?.courseAuthors ?? []
     );
     const [modal, setModal] = useState(false);
-
-    const [title, setTitle] = useState(
-        defaultValues ? defaultValues.title : ''
-    );
-    const [description, setDescription] = useState(
-        defaultValues ? defaultValues.description : ''
-    );
-    const [duration, setDuration] = useState(
-        defaultValues ? defaultValues.duration : 0
-    );
 
     const changeDescriptionHandler = (e) => setDescription(e.target.value);
     const changeTitleHandler = (e) => setTitle(e.target.value);
@@ -58,7 +52,7 @@ const CourseForm = ({ defaultValues }) => {
             return setModal(true);
         }
 
-        if (defaultValues !== undefined) {
+        if (defaultValues) {
             const updatedCourse = {
                 title: title,
                 description: description,
@@ -118,14 +112,16 @@ const CourseForm = ({ defaultValues }) => {
             <form
                 onSubmit={submitHandler}
                 className={classes['new-course']}
-                name='course-form'
+                name={'course-form'}
             >
                 <FormActions
+                    className={classes['new-course__actions']}
                     onCancel={cancelButtonHandler}
                     updateForm={defaultValues ? true : false}
                 />
 
                 <CourseDetails
+                    className={classes['new-course__details']}
                     title={title}
                     description={description}
                     duration={duration}
@@ -134,15 +130,19 @@ const CourseForm = ({ defaultValues }) => {
                     onDuration={changeDurationHandler}
                 />
 
-                <CreateAuthor />
+                <CreateAuthor
+                    className={classes['new-course__create-author']}
+                />
 
                 <AuthorsPanel
+                    className={classes['new-course__authors-panel']}
                     title={'Authors'}
                     buttonName={'Add'}
                     authorList={authorsList}
                     onClickAuthor={addAuthorListHandler}
                 />
                 <AuthorsPanel
+                    className={classes['new-course__authors-panel']}
                     title={'Course authors'}
                     buttonName={'Delete'}
                     authorList={courseAuthorsList}

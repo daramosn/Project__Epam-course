@@ -1,0 +1,14 @@
+.authors-panel {
+    &__list-item {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.6rem;
+    }
+    &--no-padding {
+        padding: 0;
+    }
+    &--title {
+        text-align: center;
+    }
+}

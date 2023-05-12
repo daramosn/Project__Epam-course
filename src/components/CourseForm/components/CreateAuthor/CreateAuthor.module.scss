@@ -1,0 +1,9 @@
+.new-author {
+    display: grid;
+    gap: 1rem;
+
+    &--title {
+        margin: 0;
+        text-align: center;
+    }
+}

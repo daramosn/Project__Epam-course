@@ -7,7 +7,7 @@ import { addAuthor } from '../../../../store/authors/thunk';
 
 import classes from './CreateAuthor.module.scss';
 
-const CreateAuthor = (props) => {
+const CreateAuthor = ({ className }) => {
     const [inputAuthor, setInputAuthor] = useState('');
     const dispatch = useDispatch();
 
@@ -19,13 +19,12 @@ const CreateAuthor = (props) => {
         if (inputAuthor.length > 1) {
             const newAuthor = { name: inputAuthor };
             setInputAuthor('');
-            // setAuthorList((prevAuthorList) => [...prevAuthorList, newAuthor]);
             dispatch(addAuthor(newAuthor));
         }
     };
 
     return (
-        <section className={classes['new-author']}>
+        <section className={classes['new-author'] + ' ' + className}>
             <h4 className={classes['new-author--title']}>Add author</h4>
             <Input
                 label={'Author name'}
